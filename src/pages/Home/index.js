@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await axios.get('products')
+      const response = await api.get('products')
 
       const data = response.data.map(product => ({
         ...product,
