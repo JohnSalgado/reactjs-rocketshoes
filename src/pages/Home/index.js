@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { MdAddShoppingCart } from 'react-icons/md'
 import { formatPrice } from '../../util/format'
-import api from '../../services/api'
+//import api from '../../services/api'
+import axios from 'axios'
 
 import * as CartActions from '../../store/modules/cart/actions'
 
@@ -20,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     async function loadProducts() {
-      const response = await api.get('products')
+      const response = await axios.get('https://raw.githubusercontent.com/JohnSalgado/reactjs-rocketshoes/master/data.json')
 
       const data = response.data.map(product => ({
         ...product,
